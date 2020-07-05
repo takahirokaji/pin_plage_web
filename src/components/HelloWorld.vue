@@ -1,34 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+  <div>
+  <nav class="header-nav">
+    <img class="pinplage-logo" width="18%" src="../assets/logo/pinplagelogo.png">
+    <ul class="page">
+      <li style="color:#effffa;">Home</li>
+      <li style="color:#effffa;">rinrin</li>
+      <li style="color:#effffa;">chie</li>
     </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="circle">
+    <img class="icon" src="../assets/logo/sakura.jpg">
+    </div>
+  </nav>
+  <div class="card">
+    <p class="str">this page is test page for pinplage</p>
+  </div>
+  <div class="box">
+    <div class="something"><p class="str">this page is test page for pinplage</p></div>
+    <div class="something"><p class="str">this page is test page for pinplage</p></div>
+    <div class="something"><p class="str">this page is test page for pinplage</p></div>
+  </div>
   </div>
 </template>
 
@@ -43,18 +33,116 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.circle{
+  position: absolute;
+  top:0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+background: #98e6d0;
+box-shadow:  6px 6px 11px #83c6b3, 
+             -6px -6px 11px #adffed;
+}
+.icon{
+    margin:0 auto;
+    width:70px;
+    height: 70px;
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    background-position: left top;
+    background: #98e6d0;
+    box-shadow:  7px 7px 10px #89cfbb, 
+                -7px -7px 10px #a7fde5;
+}
+/* .icon:before{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+} */
+.header-nav {
+  position: relative;
+  margin-top: 15px;
+  padding: 2px 60px;
+  margin-bottom: 10px; 
+  /* border-radius: 20px;
+  background: #98e6d0;
+  box-shadow:  6px 6px 12px #89cfbb, 
+              -6px -6px 12px #a7fde5; */
+}
+.pinplage-logo{
+  position: absolute;
+  left:1%;
+  top:5%;
+  padding: 9px;
+  border-radius: 20px;
+  background: #98e6d0;
+  box-shadow:  3px 3px 10px #89cfbb, 
+              -3px -3px 10px #befae9;
+}
 h3 {
   margin: 40px 0 0;
 }
 ul {
   list-style-type: none;
-  padding: 0;
+  padding-left: 19%;
+  text-align: left;
 }
 li {
+  font-size: 28px;
+  width: 90px;
+  text-align: center;
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 18px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #98e6d0;
+  box-shadow:  3px 3px 10px #89cfbb, 
+              -3px -3px 10px #a7fde5;
 }
 a {
   color: #42b983;
 }
+.card{
+  margin: 100px auto;
+  width: 90%;
+  height: 90px;
+  background: #eeeeee;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+background: #98e6d0;
+box-shadow:  6px 6px 11px #83c6b3, 
+             -6px -6px 11px #adffed
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.something{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin:0 40px;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  background: #98e6d0;
+  box-shadow:  6px 6px 11px #83c6b3, 
+              -6px -6px 11px #adffed
+}
+
+.str{
+  color:#effffa;
+}
+
 </style>

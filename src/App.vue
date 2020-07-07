@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <!-- <div id="nav"> -->
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-    <!-- </div> -->
+    <Header/>
     <router-view/>
   </div>
 </template>
-
+<script>
+import Header from '@/components/Header.vue'
+export default {
+  components:{
+    Header
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +26,7 @@
 }
 
 #nav a {
+  text-decoration: dashed;
   font-weight: bold;
   color: #2c3e50;
 }

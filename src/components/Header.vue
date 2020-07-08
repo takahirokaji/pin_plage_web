@@ -6,13 +6,15 @@
         <router-link :to="item.link"><Button :btn-name="item.name"/></router-link>
       </li>
     </ul>
-    <icon class="mypage" />
+    <div class="mypage">
+      <router-link to="/mypage"><iconbtn/></router-link>
+    </div>
     </nav>
 </template>
 
 <script>
 import Button from '@/components/button.vue'
-import icon from '@/components/icon.vue'
+import iconbtn from '@/components/Atom/iconbtn.vue'
 export default {
     data(){
         return{
@@ -23,10 +25,14 @@ export default {
             ]
         }
     },
-    name: 'Header',
     components:{
         Button,
-        icon
+        iconbtn
+    },
+    function:{
+      pushPage(str){
+        this.$router.push({name: str})
+      }
     }
 }
 </script>

@@ -1,17 +1,21 @@
 <template>
   <div class="home">
-    <HelloWorld/>
+    <newmoCard :msg="cardmsg"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import newmoCard from '@/components/newmoCard.vue'
+// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  data(){
+    return{
+      cardmsg : "this is test HOME so don't care"    }
+  },
   components: {
-    HelloWorld,
+    newmoCard
   }
 }
 </script>

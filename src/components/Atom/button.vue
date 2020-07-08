@@ -39,9 +39,6 @@ export default {
     color: #fff;
     font-size:1rem;
 }
-.btnName:active{
-    font-size:0.95rem;
-}
 
 .newmoButton:hover{
   cursor:pointer;

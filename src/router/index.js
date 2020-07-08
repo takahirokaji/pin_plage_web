@@ -19,6 +19,11 @@ Vue.use(VueRouter)
     path: '/chiebukuro',
     name: 'ChieBukuro',
     component: () => import('../views/ChieBukuro.vue')
+  },
+  {
+    path: '/mypage',
+    name: 'MyPage',
+    component: () => import('../views/MyPage.vue')
   }
 ]
 

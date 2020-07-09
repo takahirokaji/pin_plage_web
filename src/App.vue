@@ -13,11 +13,11 @@ export default {
 }
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
 #app {
   min-height: 100vh;
   position: relative;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Kosugi', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

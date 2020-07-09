@@ -1,9 +1,11 @@
 <template>
   <div class="rinrin">
     <newmoCard :msg="cardmsg"/>
-    <ul>
-      <li class="link" v-for="(item,index) in allContents" :key="index">
-        <newmoCard :msg="item"/>
+    <ul class="rinrinContainer">
+      <li class="rinrinItem" v-for="item in allContents" :key="item.id">
+        <rinrinCard 
+          :mainImg="item.articleMainImg.url" 
+          :title="item.title" :views="item.views" :category="item.category" />
       </li>
     </ul>
   </div>
@@ -11,19 +13,20 @@
 
 <script>
 import newmoCard from '@/components/newmoCard.vue'
+import rinrinCard from '@/components/Orga/rinrinCard.vue'
 import firebase from "@/firebase/firebase";
-// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Rinrin',
   data(){
     return{
-      cardmsg : "こちらは、浜松鈴鈴一覧のページですぅ～",
-      allContents: []
+      cardmsg : "浜松鈴鈴一覧",
+      allContents: [],
     }
   },
   components: {
     newmoCard,
+    rinrinCard
   },
   created(){
     let that = this;
@@ -32,24 +35,28 @@ export default {
     .get()
     .then(snapshot => {
       snapshot.forEach(doc=>{
-        that.allContents.push(doc.data().title);
-        console.log(that.allContents)
+        let arr = doc.data();
+        arr.id = doc.id;
+        that.allContents.push(arr);
       })
+    })
+    .then( () => {
+      console.log(that.allContents);
     })
   }
 }
 </script>
 
 <style scoped>
-.links {
+.rinrinContainer{
+  list-style: none;
   display: flex;
-  justify-content: left;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
-/* .link {
-  display: inline-block;
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-} */
+.rinrinItem{
+  margin:30px;
+}
   
 </style>

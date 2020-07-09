@@ -1,6 +1,9 @@
 <template>
     <button class="newmoButton" :class="{btnActive:isActive}" >
-      <p class="btnName">{{btnName}}</p>
+      <p :class="['btnName',{btnNameActive:isActive}]">{{btnName}}
+        <span 
+          :class="['btnIcon','mdi',`${mdiIcon}`,{active:isActive}]" style="margin-left:0.5rem;"></span>
+      </p>
     </button>
 </template>
 
@@ -12,6 +15,10 @@ export default {
       required:true
     },
     link:{
+      type:String,
+      required:true
+    },
+    mdiIcon:{
       type:String,
       required:false
     }
@@ -27,7 +34,7 @@ export default {
 <style scoped>
 .newmoButton{
   padding: 1rem;
-  width: 6rem;
+  width: 8rem;
   outline: none;
   appearance: none;
   border: none;
@@ -53,6 +60,9 @@ export default {
 .btnName{
     color: #fff;
     font-size:1rem;
+}
+.btnNameActive{
+    color:#E697D5
 }
 .newmoButton:hover{
   cursor:pointer;

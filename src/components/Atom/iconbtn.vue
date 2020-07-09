@@ -1,5 +1,5 @@
 <template>
-    <button class="circle" :class="{btnActive:isActive}" title="マイページに遷移"><img class="icon" :class="{iconActive:isActive}" src="../../assets/logo/sakura.jpg"></button>
+    <button class="circle" :class="{btnActive:isActive}" title="マイページに遷移"><img class="icon" :class="{iconActive:isActive}" src="../../assets/logo/syacyou.png"></button>
 </template>
 
 <script>

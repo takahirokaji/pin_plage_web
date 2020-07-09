@@ -1,19 +1,26 @@
 <template>
-    <div>
-        <button class="newmoButton">
-            <p class="btnName">{{btnName}}</p>
-        </button>
-    </div> 
+    <button class="newmoButton" :class="{btnActive:isActive}" >
+      <p class="btnName">{{btnName}}</p>
+    </button>
 </template>
 
 <script>
 export default {
-    props:{
-        btnName:{
-            type:String,
-            required:true
-        }
+  props:{
+    btnName:{
+      type:String,
+      required:true
+    },
+    link:{
+      type:String,
+      required:false
     }
+  },
+  computed:{
+    isActive:function(){
+      return (this.link === this.$route.path ? true : false)
+    }
+  }
 }
 </script>
 
@@ -35,14 +42,17 @@ export default {
   box-shadow: inset 3px 3px 10px #81c4b1, 
             inset -3px -3px 10px #afffef;
 }
+.btnActive{
+  border: none;
+  border-radius: 8px;
+  background: #98e6d0;
+  box-shadow: inset 3px 3px 10px #81c4b1, 
+            inset -3px -3px 10px #afffef;
+}
 .btnName{
     color: #fff;
     font-size:1rem;
 }
-.btnName:active{
-    font-size:0.95rem;
-}
-
 .newmoButton:hover{
   cursor:pointer;
 }

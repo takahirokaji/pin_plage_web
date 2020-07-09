@@ -1,19 +1,24 @@
 <template>
-    <div>
-        <button class="newmoButton">
-            <p class="btnName">{{btnName}}</p>
-        </button>
-    </div> 
+  <div>
+    <button class="newmoButton" :active="isActive">
+      <p class="btnName">{{btnName}}</p>
+    </button>
+  </div> 
 </template>
 
 <script>
 export default {
-    props:{
-        btnName:{
-            type:String,
-            required:true
-        }
+  props:{
+    btnName:{
+      type:String,
+      required:true
     }
+  },
+  computed:{
+    isActive: function(){
+      return this.btnName === $route.path ? 'active' : '';
+  }
+  }
 }
 </script>
 

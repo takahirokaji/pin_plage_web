@@ -3,11 +3,11 @@
       <img class="pinplage-logo" width="18%" src="../assets/logo/pinplagelogo.png">
     <ul class="links">
       <li class="link" v-for="item in btnInfo" :key="item.name">
-        <router-link :to="item.link"><Button :btn-name="item.name"/></router-link>
+        <router-link :to="item.link"><Button :btnName="item.name" :link="item.link"/></router-link>
       </li>
     </ul>
     <div class="mypage">
-      <router-link to="/mypage"><iconbtn/></router-link>
+      <router-link to="/mypage"><iconbtn :link='iconInfo.link' /></router-link>
     </div>
     </nav>
 </template>
@@ -20,9 +20,10 @@ export default {
         return{
             btnInfo:[
                 {name: 'ホーム',link:'/'},
-                {name: '浜松鈴鈴',link:'/rinrin'},
-                {name: 'パンプラ',link:'/Chiebukuro'},
-            ]
+                {name: 'はままつ',link:'/rinrin'},
+                {name: '知恵袋',link:'/Chiebukuro'},
+            ],
+            iconInfo:{link:'/mypage'}
         }
     },
     components:{
@@ -37,6 +38,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .links,.header-nav {
   display: flex;
   justify-content: left;

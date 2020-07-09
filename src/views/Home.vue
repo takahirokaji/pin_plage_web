@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <newmoCard :msg="cardmsg"/>
+    <newmoCard :msg="cardmsg"/>
+    <newmoCard :msg="cardmsg"/>
   </div>
 </template>
 

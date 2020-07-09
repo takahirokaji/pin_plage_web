@@ -1,6 +1,27 @@
 <template>
-    <button class="circle"><img class="icon" src="../../assets/logo/sakura.jpg"></button>
+    <button class="circle" :class="{btnActive:isActive}" title="マイページに遷移"><img class="icon" :class="{iconActive:isActive}" src="../../assets/logo/syacyou.png"></button>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  props:{
+    link:{
+      type:String,
+      required:true
+    }
+  },
+  computed:{
+    isActive:function(){
+      return (this.link === this.$route.path ? true : false)
+    }
+  }
+}
+</script>
 
 <style scoped>
 .circle{  
@@ -36,12 +57,19 @@
     box-shadow:  7px 7px 10px #89cfbb, 
                 -7px -7px 10px #a7fde5;
 }
-.icon:active{
+.iconActive{
   width:63px;
   height: 63px;
   border: none;
   background: #98e6d0;
   box-shadow: none;
+}
+.btnActive{
+  border: none;
+  border-radius: 50%;
+  background: #98e6d0;
+  box-shadow: inset 3px 3px 10px #81c4b1, 
+            inset -3px -3px 10px #afffef;
 }
 
 

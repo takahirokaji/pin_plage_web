@@ -16,7 +16,7 @@ export default {
 <style scoped>
 .str{
   font-size: 1rem;
-  color:#effffa;
+  color:#575757;
 }
 .card{
   margin: 50px 200px;
@@ -26,8 +26,8 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background: #98e6d0;
-  box-shadow:  6px 6px 11px #83c6b3, 
-              -6px -6px 11px #adffed
+  background: #E9F7EC;
+  box-shadow:  5px 5px 10px #c6d2c9, 
+              -5px -5px 10px #ffffff;
 }
 </style>

@@ -19,7 +19,7 @@ export default {
   color:#effffa;
 }
 .card{
-  margin: 50px 20px;
+  margin: 50px 200px;
   padding: 2rem;
   background: #eeeeee;
   display: flex;

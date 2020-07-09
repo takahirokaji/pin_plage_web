@@ -26,7 +26,8 @@ export default {
 
 <style scoped>
 .newmoButton{
-  width: 120px;
+  padding: 1rem;
+  width: 6rem;
   outline: none;
   appearance: none;
   border: none;

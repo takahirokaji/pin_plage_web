@@ -17,15 +17,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
 .box{
   margin: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .something{
   display: flex;
   justify-content: center;
@@ -39,9 +36,7 @@ export default {
   box-shadow:  6px 6px 11px #83c6b3, 
               -6px -6px 11px #adffed
 }
-
 .str{
   color:#effffa;
 }
-
 </style>

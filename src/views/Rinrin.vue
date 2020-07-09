@@ -1,9 +1,9 @@
 <template>
   <div class="rinrin">
     <newmoCard :msg="cardmsg"/>
-    <ul class="links">
+    <ul>
       <li class="link" v-for="(item,index) in allContents" :key="index">
-        <Button :btnName="item"/>
+        <newmoCard :msg="item"/>
       </li>
     </ul>
   </div>
@@ -12,7 +12,6 @@
 <script>
 import newmoCard from '@/components/newmoCard.vue'
 import firebase from "@/firebase/firebase";
-import Button from '@/components/button.vue';
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
@@ -25,7 +24,6 @@ export default {
   },
   components: {
     newmoCard,
-    Button,
   },
   created(){
     let that = this;
@@ -48,10 +46,10 @@ export default {
   justify-content: left;
   align-items: center;
 }
-.link {
+/* .link {
   display: inline-block;
   margin: 0 0.5rem;
   padding: 0.5rem;
-}
+} */
   
 </style>

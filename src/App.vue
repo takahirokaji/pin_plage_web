@@ -15,7 +15,6 @@ export default {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap');
-
 #app {
   min-height: 100vh;
   position: relative;
@@ -25,7 +24,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 html{
   height: 100%;
   background: #98e6d0;

@@ -1,8 +1,7 @@
 <template>
     <button class="newmoButton" :class="{btnActive:isActive}" >
       <p :class="['btnName',{btnNameActive:isActive}]">{{btnName}}
-        <span 
-          :class="['btnIcon','mdi',`${mdiIcon}`,{active:isActive}]" style="margin-left:0.5rem;"></span>
+        <span :class="['btnIcon','mdi',`${mdiIcon}`,{active:isActive}]" style="margin-left:0.5rem;"></span>
       </p>
     </button>
 </template>
@@ -39,26 +38,26 @@ export default {
   appearance: none;
   border: none;
   border-radius: 8px;
-  background: #98e6d0;
-  box-shadow:  3px 3px 10px #89cfbb, 
-              -3px -3px 10px #a7fde5;
+  background: #E9F7EC;
+  box-shadow:  5px 5px 10px #a6aca7, 
+              -5px -5px 10px #ffffff;
 }
-.newmoButton:active{
+/* .newmoButton:active{
   border: none;
   border-radius: 8px;
   background: #98e6d0;
   box-shadow: inset 3px 3px 10px #81c4b1, 
             inset -3px -3px 10px #afffef;
-}
+} */
 .btnActive{
   border: none;
   border-radius: 8px;
-  background: #98e6d0;
-  box-shadow: inset 3px 3px 10px #81c4b1, 
-            inset -3px -3px 10px #afffef;
+background: #E9F7EC;
+box-shadow: inset 5px 5px 10px #c6d2c9, 
+            inset -5px -5px 10px #ffffff;
 }
 .btnName{
-    color: #fff;
+    color: rgb(48, 48, 48);
     font-size:1rem;
 }
 .btnNameActive{

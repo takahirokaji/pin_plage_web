@@ -2,11 +2,10 @@
   <div id="app">
     <Header/>
     <router-view/>
-    <footer style="color:#fff;position: absolute;bottom: 0;left:43%;">@Yuhashi-lab AcroSpace</footer>
   </div>
 </template>
 <script>
-import Header from '@/components/Header.vue'
+import Header from '@/components/Orga/Header.vue'
 export default {
   components:{
     Header
@@ -26,6 +25,6 @@ export default {
 }
 html{
   height: 100%;
-  background: #98e6d0;
+  background: #E9F7EC;
 }
 </style>

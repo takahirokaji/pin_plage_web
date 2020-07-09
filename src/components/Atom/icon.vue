@@ -24,5 +24,4 @@
     box-shadow:  7px 7px 10px #89cfbb, 
                 -7px -7px 10px #a7fde5;
 }
-
 </style>

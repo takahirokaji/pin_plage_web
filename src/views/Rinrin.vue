@@ -40,8 +40,8 @@ export default {
         that.allContents.push(arr);
       })
       that.allContents.sort((a,b) =>{
-        let agood = a["views"];
-        let bgood = b["views"];
+        let agood = a["good"];
+        let bgood = b["good"];
         if(agood > bgood) return -1;
         if(agood < bgood) return 1;
         return 0;

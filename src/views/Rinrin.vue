@@ -28,7 +28,7 @@ export default {
     newmoCard,
     rinrinCard
   },
-  created(){
+  created: function(){
     let that = this;
     const allRinrin = firebase.firestore().collection("rinrinDatas");
     allRinrin
@@ -39,11 +39,19 @@ export default {
         arr.id = doc.id;
         that.allContents.push(arr);
       })
+      that.allContents.sort((a,b) =>{
+        let agood = a["views"];
+        let bgood = b["views"];
+        if(agood > bgood) return -1;
+        if(agood < bgood) return 1;
+        return 0;
+      })
     })
     .then( () => {
-      console.log(that.allContents);
+
+      console.log(that.allContents);   
     })
-  }
+  },
 }
 </script>
 

@@ -15,7 +15,7 @@ export default {
     },
     link:{
       type:String,
-      required:true
+      required:false
     },
     mdiIcon:{
       type:String,

@@ -15,8 +15,14 @@
               <h2 class="rinrinTitle title primary--text">{{title}}</h2>
             </v-card-text>
             <v-card-title>
+              <span class="mdi mdi-pencil"></span>
+              <span class="info primary--text">{{date}}</span>
+              <v-divider style="border-style:none;"></v-divider>
               <span class="mdi mdi-eye"></span>
               <span class="info primary--text">{{views}}</span>
+              <v-divider style="border-style:none;"></v-divider>
+              <span class="mdi mdi-heart"></span>
+              <span class="info primary--text">{{good}}</span>
               <v-divider style="border-style:none;"></v-divider>
               <span class="info primary--text">{{category}}</span>
             </v-card-title>
@@ -26,7 +32,7 @@
                 absolute
                 color="rgb(231,175,219)"
               >
-                <v-btn>閲覧する</v-btn>
+                <v-btn @click="loglog(allData)">閲覧する</v-btn>
               </v-overlay>
             </v-fade-transition>
           </v-card>
@@ -55,7 +61,24 @@ export default {
         type:String,
         required:true
       },
+      date:{
+        type:String,
+        required:true
+      },
+      allData:{
+        type:Object,
+        required:true
+      },
+      good:{
+        type:Number,
+        required:true
+      }
   },
+  methods:{
+    loglog(arr){
+      console.log(arr);
+    }
+  }
 }
 </script>
 

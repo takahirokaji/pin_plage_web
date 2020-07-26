@@ -24,6 +24,11 @@ Vue.use(VueRouter)
     path: '/mypage',
     name: 'MyPage',
     component: () => import('../views/MyPage.vue')
+  },
+  {
+    path: '/rinrinInfo',
+    name: 'RinrinInfo',
+    component: () => import('../views/Rinrin/mainContents.vue')
   }
 ]
 

@@ -19,7 +19,6 @@
         >
           ここがログインボタンだよ！
         </v-btn>
-
         <v-overlay
           :value="overlay"
           :z-index="zIndex"

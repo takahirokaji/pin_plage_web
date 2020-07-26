@@ -1,6 +1,6 @@
 <template>
     <nav class="header-nav">
-      <img class="pinplage-logo" width="18%" src="../assets/logo/pinplagelogo.png">
+      <img class="pinplage-logo" src="@/assets/logo/pinplagelogo.png">
     <ul class="links">
       <li class="link" v-for="item in btnInfo" :key="item.name">
         <router-link :to="item.link"><Button :btnName="item.name" :link="item.link" :mdiIcon="item.icon"/></router-link>
@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import Button from '@/components/button.vue'
+import Button from '@/components/Atom/button.vue'
 import iconbtn from '@/components/Atom/iconbtn.vue'
 import firebase from '@/firebase/firebase.js';
 export default {
@@ -94,7 +94,7 @@ export default {
             btnInfo:[
                 {name: 'ホーム',link:'/',icon:'mdi-home'},
                 {name: '浜松鈴鈴',link:'/rinrin',icon:'mdi-book-open-page-variant'},
-                {name: '知恵袋',link:'/Chiebukuro',icon:'mdi-comment-question-outline'},
+                {name: '知恵袋',link:'/Chiebukuro',icon:'mdi-comment-question-outline'}
             ],
             iconInfo:{link:'/mypage'},
             loginEmail: '',
@@ -199,7 +199,7 @@ export default {
 </script>
 <style scoped>
 .header-nav{
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 .links,.header-nav {
   display: flex;
@@ -207,8 +207,9 @@ export default {
   align-items: center;
 }
 .pinplage-logo{
+  width: 13rem;
+  margin: 0 2rem;
   margin-top:1rem;
-  margin-left: 2rem;
 }
 .link {
   display: inline-block;

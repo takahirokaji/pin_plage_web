@@ -15,7 +15,7 @@
         <v-btn
           class="mt-12"
           color="black"
-          @click="loginAndLogout"
+          @click="loginOrLogout"
         >
           ここがログインボタンだよ！
         </v-btn>
@@ -116,7 +116,7 @@ export default {
         }
     },
     methods:{
-      loginAndLogout(){
+      loginOrLogout(){
         if(this.$store.state.email !== ""){
           this.logoutUser();
         }else{
@@ -175,20 +175,22 @@ export default {
     watch:{
       loginEmail: function(val){
         console.log("loginE");
-        if(val.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com")&&this.loginPassword.length >= 6){
-          this.loginEnable = true;
+        if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com/.test(val)&&this.loginPassword.length >= 6){
+          this.loginEnable = false;
           console.log("true");
         }else{
-          this.loginEnable = false;
+          this.loginEnable = true;
         }
       },
       loginPassword: function(val){
         console.log("loginP");
-        if(this.loginEmail.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com")&&val.length >= 6){
-          this.loginEnable = true;
+        console.log(val.length >= 6);
+        console.log(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com/.test(this.loginEmail));
+        if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com/.test(this.loginEmail)&&val.length >= 6){
+          this.loginEnable = false;
           console.log("true");
         }else{
-          this.loginEnable = false;
+          this.loginEnable = true;
         }
       },
       deep:true

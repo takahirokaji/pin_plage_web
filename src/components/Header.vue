@@ -38,6 +38,8 @@
                       <v-text-field
                         v-model = "loginEmail"
                         label="loginEmail"
+                        prepend-icon="mdi-account-circle"
+                        :rules="emailRules"
                       ></v-text-field>
                   </v-row>
                 </v-container>
@@ -46,11 +48,14 @@
                 <v-container>
                   <v-row>
                       <v-text-field
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        v-bind:type="show1 ? 'text' : 'password'"
-                        @click:append="show1 = !show1"
+                        :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+                        v-bind:type="passwordShow ? 'text' : 'password'"
+                        @click:append="passwordShow = !passwordShow"
                         v-model ="loginPassword"
+                        name="input-10-1"
                         label="Password"
+                        prepend-icon="mdi-lock"
+                        :rules="passwordRules"
                       ></v-text-field>
                   </v-row>
                 </v-container>
@@ -61,6 +66,7 @@
           <v-btn
             color="primary"
             @click="loginUser"
+            :disabled="loginEnable"
           >
             ログイン
           </v-btn>
@@ -93,17 +99,25 @@ export default {
             iconInfo:{link:'/mypage'},
             loginEmail: '',
             loginPassword: '',
+            passwordShow:false,
+            loginEnable:false,
             authenticatedUser: '',
             absolute: false,
             opacity: 0.3,
             overlay: false,
             zIndex: 200,
-            loginStatus:false,
+            emailRules: [
+              v => !!v || "メールアドレスは必須項目です。",
+              v => /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com/.test(v) || "静大ドメインからのみログインが可能です。"
+            ],
+            passwordRules:[
+              v => (v && v.length >= 6) ||"パスワードは6文字以上必須です" 
+            ],
         }
     },
     methods:{
       loginAndLogout(){
-        if(this.loginStatus == true){
+        if(this.$store.state.email !== ""){
           this.logoutUser();
         }else{
           this.overlay = true;
@@ -112,8 +126,8 @@ export default {
     logoutUser(){
       if(confirm("ログアウトしますか？")==true){
         firebase.auth().signOut();
+        this.$store.state.email = "";
         alert("ログアウトしました");
-        this.loginStatus = false;
       }
     },
     loginUser(){
@@ -123,18 +137,18 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.loginEmail, this.loginPassword)
         .then(async () => {
-          this.$store.state.email = this.loginEmail;
-          console.log(this.$store.state.email);
-          this.overlay = false;
-          alert("ログインに成功しました。");
+            this.$store.state.email = this.loginEmail;
+            console.log(this.$store.state.email);
+            this.overlay = false;
+            alert("ログインに成功しました。");
         })
         .catch(function(error) {
           // Handle Errors here.
+          alert("メールアドレスかログインパスワードが違います。");
           var errorCode = error.code;
           var errorMessage = error.message;
           console.log(errorCode);
           console.log(errorMessage);
-          console.log("aaa");
         });
       }
     },
@@ -147,19 +161,38 @@ export default {
         this.$router.push({name: str})
       }
     },
-    mounted(){
+    mounte(){
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           console.log('login');
           this.authenticatedUser = true;
-          this.loginStatus = true;
         } else {
           console.log('logout');
           this.authenticatedUser = false;
-          this.loginStatus = false;
         }
-      });     
-  }
+      });
+    },
+    watch:{
+      loginEmail: function(val){
+        console.log("loginE");
+        if(val.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com")&&this.loginPassword.length >= 6){
+          this.loginEnable = true;
+          console.log("true");
+        }else{
+          this.loginEnable = false;
+        }
+      },
+      loginPassword: function(val){
+        console.log("loginP");
+        if(this.loginEmail.match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(s.)?(inf.)?shizuoka.ac.jp|yuhashi.laboratory@gmail.com")&&val.length >= 6){
+          this.loginEnable = true;
+          console.log("true");
+        }else{
+          this.loginEnable = false;
+        }
+      },
+      deep:true
+    }
 }
 </script>
 <style scoped>

@@ -3,13 +3,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const rinrinData = {
+  state: () => ({
+    allData: []
+  }),
+}
+
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+  modules:{
+    rinrinAll: rinrinData
   }
 })

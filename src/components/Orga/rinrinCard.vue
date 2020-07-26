@@ -32,7 +32,7 @@
                 absolute
                 color="rgb(231,175,219)"
               >
-                <v-btn @click="loglog(allData)">閲覧する</v-btn>
+                <v-btn @click="pushPage('RinrinInfo'),passArticle(mainArticle)">閲覧する</v-btn>
               </v-overlay>
             </v-fade-transition>
           </v-card>
@@ -65,7 +65,7 @@ export default {
         type:String,
         required:true
       },
-      allData:{
+      mainArticle:{
         type:Object,
         required:true
       },
@@ -75,8 +75,11 @@ export default {
       }
   },
   methods:{
-    loglog(arr){
-      console.log(arr);
+    pushPage(str){
+      this.$router.push({name:str})
+    },
+    passArticle(obj){
+      this.$store.state.rinrinAll = obj;
     }
   }
 }

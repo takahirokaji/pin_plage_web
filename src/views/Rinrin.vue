@@ -1,13 +1,11 @@
 <template>
   <div class="rinrin">
-    <!-- <newmoCard :msg="cardmsg"/> -->
     <div>浜松鈴鈴一覧ページ</div>
     <ul class="sortBtns">
       <li class="sortBtn" v-for="item in sortBtn" :key="item.sortKey">
         <div @click="sortArr(allContents,item.sortKey)">
         <Button :btnName="item.name"/>
         </div>
-        <!-- <button class="btnbtn" @click=""><p>{{item.name}}</p></button> -->
       </li>
     </ul>
     <ul class="rinrinContainer">
@@ -19,18 +17,16 @@
           :good="item.good"
           :category="item.category"
           :date="item.date"
-          :allData="item.mainArticle"/>
+          :mainArticle="item.mainArticle"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import newmoCard from '@/components/newmoCard.vue'
 import rinrinCard from '@/components/Orga/rinrinCard.vue'
 import Button from '@/components/Atom/button.vue'
 import firebase from "@/firebase/firebase";
-
 export default {
   name: 'Rinrin',
   data(){
@@ -47,7 +43,6 @@ export default {
     }
   },
   components: {
-    // newmoCard,
     rinrinCard,
     Button
   },
@@ -61,11 +56,9 @@ export default {
         let arr = doc.data();
         arr.id = doc.id;
         that.allContents.push(arr);
-        console.log(doc.data().category)
       })
       this.sortArr(that.allContents,'date');
-    })
-    .then(() => {   
+      that.$store.state.rinrinAll = that.allContents;
     })
   },
   methods:{
@@ -78,9 +71,7 @@ export default {
         return 0;
       })
     },
-    loglog:(str)=>{
-      console.log(str);
-    }
+    
   }
 }
 </script>
@@ -104,7 +95,7 @@ export default {
   margin-left:100px;
 }
 .sortBtn{
-   display: inline-block;
+  display: inline-block;
   margin: 0 auto;
   padding: 0.5rem;
 }
@@ -115,7 +106,6 @@ export default {
   background: #E9F7EC;
   box-shadow:  8px 8px 17px #b6c1b8, 
               -8px -8px 17px #ffffff;
-
 }
   
 </style>

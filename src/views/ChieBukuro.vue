@@ -1,13 +1,12 @@
 <template>
   <div class="rinrin">
     <newmoCard :msg="cardmsg"/>
-    <HelloWorld/>
   </div>
 </template>
 
 <script>
 import newmoCard from '@/components/newmoCard.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
+// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Rinrin',
@@ -17,7 +16,6 @@ export default {
   },
   components: {
     newmoCard,
-    HelloWorld
   }
 }
 </script>

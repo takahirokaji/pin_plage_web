@@ -7,17 +7,14 @@
       </li>
     </ul>
     <div class="mypage">
-      <router-link to="/mypage"><iconbtn :link='iconInfo.link' /></router-link>
-    </div>
-        <v-row justify="center">
-    <v-col cols="12">
-      <v-row align="center">
         <v-btn
           class="mt-12"
           color="black"
+          text
+          style="margin-right:5px;"
           @click="loginOrLogout"
         >
-          ここがログインボタンだよ！
+          {{text}}
         </v-btn>
         <v-overlay
           :value="overlay"
@@ -77,9 +74,8 @@
             キャンセル
           </v-btn>
         </v-overlay>
-      </v-row>
-    </v-col>
-  </v-row>
+      <router-link to="/mypage"><iconbtn :link='iconInfo.link' /></router-link>
+    </div>
     </nav>
 </template>
 
@@ -112,11 +108,15 @@ export default {
             passwordRules:[
               v => (v && v.length >= 6) ||"パスワードは6文字以上必須です" 
             ],
+            text:"ログイン"
         }
     },
     methods:{
-      loginOrLogout(){
-        if(this.$store.state.email !== ""){
+    pushPage(str){
+        this.$router.push({name:str})
+    },
+    loginOrLogout(){
+        if(this.$store.state.id !== undefined){
           this.logoutUser();
         }else{
           this.overlay = true;
@@ -125,7 +125,9 @@ export default {
     logoutUser(){
       if(confirm("ログアウトしますか？")==true){
         firebase.auth().signOut();
-        this.$store.state.email = "";
+        this.$store.state.id = undefined;
+        this.text="ログイン"
+        this.pushPage('Home')
         alert("ログアウトしました");
       }
     },
@@ -136,10 +138,12 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.loginEmail, this.loginPassword)
         .then(async () => {
-            this.$store.state.email = this.loginEmail;
-            console.log(this.$store.state.email);
+            this.$store.state.id = this.loginEmail;
+            console.log(`id:::${this.$store.state.id}`);
             this.overlay = false;
             alert("ログインに成功しました。");
+            this.text="ログアウト"
+            this.pushPage('MyPage');
         })
         .catch(function(error) {
           // Handle Errors here.
@@ -154,11 +158,6 @@ export default {
     components:{
         Button,
         iconbtn
-    },
-    function:{
-      pushPage(str){
-        this.$router.push({name: str})
-      }
     },
     mounte(){
       firebase.auth().onAuthStateChanged((user) => {
@@ -216,6 +215,8 @@ export default {
   padding: 0.5rem;
 }
 .mypage{
+  display: flex;
+  align-items: center;
   margin-left: auto;
   margin-right: 1rem;
 }

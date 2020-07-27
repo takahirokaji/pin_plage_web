@@ -71,9 +71,6 @@ export default {
           }
   },
 }
-
-
-
 </script>
 
 <style scoped>
@@ -88,4 +85,3 @@ justify-content: space-evenly;
   
   
 </style>
-

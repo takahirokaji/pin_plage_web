@@ -1,12 +1,15 @@
 <template>
-    <button class="circle" :class="{btnActive:isActive}" title="マイページに遷移"><img class="icon" :class="{iconActive:isActive}" src="../../assets/logo/sakura.jpg"></button>
+    <button class="circle" :class="{btnActive:isActive}" title="マイページに遷移">
+      <img class="icon" :class="{iconActive:isActive}" src="../../assets/logo/sakura.jpg">
+      <img v-if="icon!==''" class="icon" :class="{iconActive:isActive}" :src="icon">
+    </button>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      
+      icon:''
     }
   },
   props:{
@@ -19,6 +22,9 @@ export default {
     isActive:function(){
       return (this.link === this.$route.path ? true : false)
     }
+  },
+  created: function(){
+    this.icon == this.$store.state.icon
   }
 }
 </script>

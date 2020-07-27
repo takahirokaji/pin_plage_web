@@ -8,9 +8,15 @@ const rinrinData = {
     allData: []
   }),
 }
+const userInfo = {
+  state: () => ({
+    email: "",
+  }),
+}
 
 export default new Vuex.Store({
   modules:{
-    rinrinAll: rinrinData
+    rinrinAll: rinrinData,
+    user: userInfo 
   }
 })

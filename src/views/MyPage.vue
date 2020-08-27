@@ -2,11 +2,13 @@
   <div class="mypage">
     <!-- ばなー -->
     <div class="banner">
-      <v-img
-        style="margin:1% 1%"
-        height="250"
-        src="https://firebasestorage.googleapis.com/v0/b/mcaexpf-2020.appspot.com/o/testforWeb%2Fsunset-3338242_1920.jpg?alt=media&token=9ea7877b-071f-429a-8d64-7a7f5a0a1638"
-      ></v-img>
+      <div>
+        <v-img
+          style="margin:1% 1%"
+          height="250"
+          src="https://firebasestorage.googleapis.com/v0/b/mcaexpf-2020.appspot.com/o/testforWeb%2Fsunset-3338242_1920.jpg?alt=media&token=9ea7877b-071f-429a-8d64-7a7f5a0a1638"
+        ></v-img>
+      </div>
     <img class="banner_icon" :src="user.icon">
     <p class="banner_name">{{user.name}}<span class="mdi mdi-account-edit"></span></p>
     </div>
